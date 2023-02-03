@@ -1,24 +1,25 @@
-# Event Driven Microservices Project
+<?xml version="1.0" encoding="UTF-8"?>
 
-## Project Configuration
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-### Create new Maven Project
+  <groupId>com.franklin</groupId>
+  <artifactId>franklinservices</artifactId>
+  <version>1.0-SNAPSHOT</version>
 
-```
-brew install maven
+  <name>franklinservices</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
 
-mvn --version
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <spring.boot.maven.plugin.version>2.5.7</spring.boot.maven.plugin.version>
+    <spring.boot.dependencies.version>2.5.7</spring.boot.dependencies.version>
+  </properties>
 
-mvn archetype:generate -DgroupId=com.franklin -DartifactId=franklinservices -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
-```
-
-Instructions: https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
-
-### Adjusting Dependencies
-
-**Dependency Management**: configure the parent project, so that all our sub-projects can pick all the dependencies they want.
-
-```
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -31,11 +32,6 @@ Instructions: https://maven.apache.org/guides/getting-started/maven-in-five-minu
     </dependencies>
   </dependencyManagement>
 
-```
-
-**Dependencies**: all our sub-modules will contain these dependencies without explicitly declare them in their pom.xml
-
-```
   <dependencies>
     <dependency>
       <groupId>org.projectlombok</groupId>
@@ -46,12 +42,9 @@ Instructions: https://maven.apache.org/guides/getting-started/maven-in-five-minu
       <artifactId>spring-boot-starter-test</artifactId>
     </dependency>
   </dependencies>
-```
 
-**Build - Plugin Management**: adding the plugins that all sub-projects will need
 
-```
-<build>
+  <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>
@@ -61,5 +54,5 @@ Instructions: https://maven.apache.org/guides/getting-started/maven-in-five-minu
         </plugin>
       </plugins>
     </pluginManagement>
-</build>
-```
+  </build>
+</project>
